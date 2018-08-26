@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  *
- * @author pronatec
+ * @author maycom
  */
 public class UsuarioDAO {
 
@@ -43,16 +43,7 @@ public class UsuarioDAO {
         return user;
     }
  
-    /* O proprio NetBeans gerou essa parte do Iteratir
-     public String consultar(String nome, String cpf) {
-        String consultar = "";
-        for (Iterator<Pessoa> it = this.pessoas.iterator(); it.hasNext();) {
-            Usuario pessoa = it.next();
-            consultar = "Nome: " + pessoa.nome + " / CPF: " + pessoa.cpf;
-        }
-        return consultar;
-    }
-     */
+   
     public boolean alterar(int id, Usuario usuario) {
         for (int i = 0; i < this.usuario.size(); i++) {
             if (this.usuario.get(i).getId() == id) {
@@ -63,15 +54,7 @@ public class UsuarioDAO {
         return false;
     }
 
-    /*
-    public void alterar(Usuario usuario) {
-        for (Usuario u : this.usuario) {
-            if (u.getNome().equals(usuario.getNome())) {
-                u.setCpf(usuario.getCpf());
-            }
-        }
-    }
-     */
+    
     public Usuario recuperar(int id) {
         for (Usuario usuario : this.usuario) {
             if (usuario.getId()==(id)) {
@@ -81,6 +64,7 @@ public class UsuarioDAO {
         return null;
     }
     
+    //Vai deletar o usuario pelo ID;
     public boolean deletar(Usuario usuario) {
        for (int i=0;i<this.usuario.size();i++) {
             if (usuario.getId()==(this.usuario.get(i).getId())) {
@@ -89,6 +73,16 @@ public class UsuarioDAO {
         }
         return false;
     }
+    /*
+    Outra forma de deletar:
+
+    public boolean deletar(Usuario usuario) {
+        this.usuario.remove(usuario);
+        return true;
+
+    }
+    
+    */
 
     public List<Usuario> recuperarTodos() {
         return this.usuario;

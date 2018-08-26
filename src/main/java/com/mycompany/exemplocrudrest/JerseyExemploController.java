@@ -5,10 +5,6 @@
  */
 package com.mycompany.exemplocrudrest;
 
-/**
- *
- * @author pronatec
- */
 import com.google.gson.Gson;
 import java.util.ArrayList;
 import javax.ws.rs.DELETE;
@@ -21,6 +17,11 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
+
+/**
+ *
+ * @author maycom
+ */
 
 /**
  * Root resource (exposed at "myresource" path)
@@ -46,6 +47,8 @@ public class JerseyExemploController {
     public String olaMundo() {
         return "Olá mundo!";
     }
+
+    //As URL's não estão corretas, então basta executar o codigo e pegar essas URL's que estão de exemplos logo à baixo!!!!!
 
     // http://localhost:8080/WebService-master/meuwebservice/add?id=1&nome=Sucesso&cpf=000000000000
     @POST
@@ -91,9 +94,7 @@ public class JerseyExemploController {
     // http://localhost:8084/ExemploCrudREST/meuwebservice/remover?nome=Leonardo&cpf=00000000000
     @DELETE
     @Path("deletar")
-    public Response deletar(
-            @QueryParam("id") int id
-            ){
+    public Response deletar(@QueryParam("id") int id) {
         Usuario usuario = new Usuario(id);
         this.usuarioDAO.deletar(usuario);
         return Response.status(Status.OK).build();
